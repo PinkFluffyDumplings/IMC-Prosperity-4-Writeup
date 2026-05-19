@@ -4,7 +4,7 @@ Our team, `Pink Fluffy Dumplings` scored a cumulative Phase-2 PnL of 1,096,164 X
 
 This writeup includes the strategies and ideas we implemented, and takeaways from Prosperity - our first algorithmic trading competition :) 
 
-> *Note: Our final round submission was unfortunately copied by another team, so our final rank wasn't initially published onto the leadboard. We emailed the Prosperity team and they kindly  confirmed we *"appear as 13th globally"* on their recruiter leaderboard.
+> *Note: Our final round submission was unfortunately copied by another team, so although we were still scored, our final rank wasn't initially published onto public the leadboard. We emailed the Prosperity team and they kindly  confirmed we *"appear as 13th globally"* on their recruiter leaderboard.
 
 ## Round 1 — [Strategy name e.g. Mean Reversion]
 
