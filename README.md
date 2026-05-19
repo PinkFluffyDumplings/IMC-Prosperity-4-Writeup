@@ -1,6 +1,8 @@
 # IMC Prosperity 4
 
-Our team, `Pink Fluffy Dumplings` finished **#13** in IMC Prosperity 4, with a cumulative Phase-2 PnL of 1,096,164 XIRECs (Algo 1,062,502 + Manual 33,662). On the algorithmic challenge alone, we finished **#9 globally**.
+Our team, `Pink Fluffy Dumplings` scored a cumulative Phase-2 PnL of 1,096,164 XIRECs (Algo 1,062,502 + Manual 33,662), which would've placed us **#13** globally in IMC Prosperity 4. On the algorithmic challenge alone, we would've finished **#9 globally**.
+
+This writeup includes the strategies and ideas we implemented, and takeaways from our first algorithmic trading competition.
 
 ## Round 1 — [Strategy name e.g. Mean Reversion]
 
