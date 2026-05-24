@@ -55,7 +55,7 @@ Since we got punished a lot for overfitting, we didn't use a fixed banded mean r
 
 ## Round 5 — The Whole Universe Opens Up
 
-**Algo PnL: +742,786** • **Algo rank: #5**
+**Algo PnL: +742,786** • **Algo rank: #5** • **Manual PnL: +20,784** • **Round 5 total: +763,571**
 
 ### Liquid — Oxygen Shakes (+668,271)
 
