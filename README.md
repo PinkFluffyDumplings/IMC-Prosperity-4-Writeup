@@ -59,7 +59,7 @@ Since we got punished a lot for overfitting, we didn't use a fixed banded mean r
 
 Looking at the graph, if we'd implemented fixed target bands like other teams who performed much better this round, we could've made a lot more money — but our model was still quite robust and would've generalised well across many different movement patterns.
 
-## Round 5 — The Whole Universe Opens Up
+## Round 5 — 50 Tradeable Products :D
 
 **Algo PnL: +742,786** • **Algo rank: #5** • **Manual PnL: +20,784** • **Round 5 total: +763,571**
 
