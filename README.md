@@ -110,6 +110,14 @@ Interestingly, we didn't explicitly pairs trade between Vanilla / Chocolate or R
 
 **How it turned out.** All five products positive except Raspberry. Four winners between +8k and +13k for a combined family PnL of **+43,462**. The basket-alignment filter did its job — prevented us from over-betting against single-product moves.
 
+### Purification — Pebbles (+32,746)
+
+**What we found.** The 5 sizes summed to ~50,000 every tick. Sometimes the sum deviated by ±15 but snapped back next step — but this wasn't profitable to trade directly. Individual sizes had directional drifts — XS and S trended down, XL trended up, L mean-reverted — but these were mostly noise.
+
+**What we built.** Since prices were overall constant, we just market-made all 5 sizes. We added a basket-momentum gate as a safety filter: sum the 5 mids, look back 20 ticks. If the basket was trending up, zero out the buy quote that tick (don't lean into the rally). If trending down, zero out the sell quote. Per-product hard loss limit of −100 → permanently disable that size for the rest of the day.
+
+**How it turned out.** Half the sizes won big (S +25k, XL +17k), half lost (L −9k, M −6k). Net +33k. The basket-sum-to-50k invariant did most of the work — when one pebble drifts the others have to compensate, so passive MM picks up spread on the compensating moves. We could have shipped a directional bet too (short XS+S, long the rest, per our notes) but didn't want to commit without more validation.
+
 ## Manual
 
 ### Round 1 — [X]
