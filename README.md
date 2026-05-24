@@ -118,6 +118,14 @@ Interestingly, we didn't explicitly pairs trade between Vanilla / Chocolate or R
 
 **How it turned out.** Half the sizes won big (S +25k, XL +17k), half lost (L −9k, M −6k). Net +33k. The basket-sum-to-50k invariant did most of the work — when one pebble drifts the others have to compensate, so passive MM picks up spread on the compensating moves. We could have shipped a directional bet too (short XS+S, long the rest, per our notes) but didn't want to commit without more validation.
 
+### Other families — what we tried, what worked, what didn't
+
+We tried market making, with biases towards certain product directions whenever we saw a signal, but we performed quite poorly on the 7 families, with a combined ~−1.7k net, with mild winners (Galaxy +16k, UV +13k, Organic +0.2k, Domestic +0.1k) offset by mild losers (Construction −5.7k, Vertical −6k, Instant −19.8k).
+
+**Lead-lag (Organic Microchips).** We noticed Circle leading the other four chips, with weak single-lag correlation (~0.05) that grew to ~0.15 when aggregated over wider windows. We implemented a Circle → Oval Z-score overlay that biased Oval's quotes toward Circle's recent move. But the lag wasn't at fixed ticks — the signal lived in inconsistent, drifting windows — and by the time the signal was visible the spread had already eaten most of the edge. We came out roughly neutral (+234 across all 5 chips), and if we had more time would've liked to find out if this signal could be profitable.
+
+Most of these families we found to be mainly noise, and it would've been difficult to trade them aggressively outside of pure market making.
+
 ## Manual
 
 ### Round 1 — [X]
