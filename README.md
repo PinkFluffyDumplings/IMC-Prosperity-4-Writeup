@@ -38,22 +38,6 @@ For the vouchers, we implemented a more involved idea for this round. We compute
   <img src="images/vee_live_round3.png" width="80%" alt="VELVETFRUIT_EXTRACT mid price during the live Round 3 submission — opens high, falls without bouncing"/>
 </p>
 
-## Round 2 — [Strategy name]
-
-**Algo PnL: +[X]** • **Algo rank: #[X]**
-
-[What changed from round 1? What new information or products did you get?]
-
-***Strategy:*** [What you implemented.]
-
-## Round 3 — [Strategy name]
-
-**Algo PnL: +[X]** • **Algo rank: #[X]**
-
-[Context and observations.]
-
-***Strategy:*** [What you implemented.]
-
 ## Round 4 — Generalised Mean Reversion
 
 **Algo PnL: +216,678** • **Algo rank: #30** • **Manual PnL: −58,240** • **Manual rank: #1200** • **Round 4 total: +158,438**
@@ -71,7 +55,7 @@ Since we got punished a lot for overfitting, we didn't use a fixed banded mean r
 
 ## Round 5 — The Whole Universe Opens Up
 
-**Algo PnL: +701,157** • **Round-only rank: #8** • **Cumulative algo rank: #3**
+**Algo PnL: +742,786** • **Algo rank: #5**
 
 ### Liquid — Oxygen Shakes (+668,271)
 
@@ -125,6 +109,8 @@ We tried market making, with biases towards certain product directions whenever 
 **Lead-lag (Organic Microchips).** We noticed Circle leading the other four chips, with weak single-lag correlation (~0.05) that grew to ~0.15 when aggregated over wider windows. We implemented a Circle → Oval Z-score overlay that biased Oval's quotes toward Circle's recent move. But the lag wasn't at fixed ticks — the signal lived in inconsistent, drifting windows — and by the time the signal was visible the spread had already eaten most of the edge. We came out roughly neutral (+234 across all 5 chips), and if we had more time would've liked to find out if this signal could be profitable.
 
 Most of these families we found to be mainly noise, and it would've been difficult to trade them aggressively outside of pure market making.
+
+Algorithmic ranking was #5 for this round. With so much alpha in the reversion of the ±100 moves on Chocolate, we climbed from top-100 algo to **#9** globally by the end of the competition.
 
 ## Manual
 
