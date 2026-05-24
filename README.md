@@ -69,13 +69,29 @@ Since we got punished a lot for overfitting, we didn't use a fixed banded mean r
 **Other notes:**
 - We spent considerable time tracking bot behaviours for insider trading and flow patterns once trader names were revealed, but couldn't find any signals — we don't believe there were any major ones to find.
 
-## Round 5 — [Strategy name]
+## Round 5 — The Whole Universe Opens Up
 
-**Algo PnL: +[X]** • **Algo rank: #[X]**
+**Algo PnL: +701,157** • **Round-only rank: #8** • **Cumulative algo rank: #3**
 
-[Context and observations.]
+### Liquid — Oxygen Shakes (+668,271)
 
-***Strategy:*** [What you implemented.]
+**What we found.** Several products showed weird ±100-tick jumps that snapped back, so we found a fair value with mean-reversion dampening to be particularly profitable across the family.
+
+**What we built.** We market-made on all 5 products, computing a fair value on every tick. Each tick we'd see how much fair had moved since the previous tick, and adjusted our fair value by a fraction of this move. With a shifted fair, we'd dime one side and let the other side retreat below the best bid/ask — biasing fills toward the mean-reverting direction. If the move was so violent that the market mispriced relative to our adjusted fair (an ask sitting below fair − edge), we'd cross the spread and lift it directly.
+
+After backtesting, Chocolate got the most aggressive setup:
+- **0.115 mean-reversion factor** (dampens each tick's fair move by 11.5%)
+- **0.2 inventory skew** (twice the default — unloads inventory hard once it builds up)
+- **`take_edge = 1 tick`** — pickier about which offers to take, only lifting asks more than 1 tick below fair
+
+Evening Breath used the default 0.12 factor — same idea, slightly weaker.
+Mint / Garlic / Morning Breath had a one-shot regime detector at tick 1000: snapshot the open price, check the current price, and turn mean reversion on or off based on whether the day opened in the predicted direction.
+
+<p align="center">
+  <img src="images/r5_liquid_chocolate.png" width="90%" alt="Round 5 Oxygen Shakes — Chocolate mid price oscillating against a steadily climbing cumulative PnL curve"/>
+</p>
+
+**How it turned out.** Chocolate alone made +587,596 — 84% of the entire round PnL. Our algo profited off of ~2000 round-trips of mean reversion across the session. Evening Breath added +68,734 with the same mechanic at smaller amplitude. Mint and Garlic's regime detector fired correctly and added small wins. Morning Breath opened the "wrong" way, so its regime stayed off and it did nothing.
 
 ## Manual
 
