@@ -93,6 +93,23 @@ Mint / Garlic / Morning Breath had a one-shot regime detector at tick 1000: snap
 
 **How it turned out.** Chocolate alone made +587,596 — 84% of the entire round PnL. Our algo profited off of ~2000 round-trips of mean reversion across the session. Evening Breath added +68,734 with the same mechanic at smaller amplitude. Mint and Garlic's regime detector fired correctly and added small wins. Morning Breath opened the "wrong" way, so its regime stayed off and it did nothing.
 
+### Protein — Snack Packs (+43,462)
+
+**What we found.** Vanilla ↔ Chocolate were perfect negatives. Raspberry ↔ Strawberry too. Pistachio didn't do much. No lead-lag — they all moved together at the same instant.
+
+**What we built.** Wall-mid MM with two layered mean-reversion adjustments stacked on top of the fair value:
+
+- **Per-product residual** — every snackpack tracks its own slow EMA. If the price drifts away from the EMA, fair gets pulled back toward it, which causes our quote to lean towards just the mean-reverting side (same mechanism as Liquid).
+- **Basket residual** — since the products were negatives of each other, the family mean should be roughly constant. We averaged all 5 mids together as a "basket" and tracked that with its own EMA. If the basket was drifting one way (meaning all products moving in one direction), we'd increase the signal to mean-revert those products — but only those whose own residual agreed with the basket's residual.
+
+Interestingly, we didn't explicitly pairs trade between Vanilla / Chocolate or Raspberry / Strawberry like other teams. The basket framework includes the pair idea automatically: when Vanilla and Chocolate move opposite each other, their moves cancel in the basket average, so the basket layer stays quiet and each product gets only its own per-product fade — which naturally trades the pair without us having to construct one explicitly. Whereas if they both move in the same direction, they receive some additional mean-reversion bias.
+
+<p align="center">
+  <img src="images/r5_protein_explainer.png" width="90%" alt="Round 5 Protein Snack Packs — all 5 mid prices and per-product cumulative PnL"/>
+</p>
+
+**How it turned out.** All five products positive except Raspberry. Four winners between +8k and +13k for a combined family PnL of **+43,462**. The basket-alignment filter did its job — prevented us from over-betting against single-product moves.
+
 ## Manual
 
 ### Round 1 — [X]
