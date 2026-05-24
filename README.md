@@ -53,6 +53,12 @@ Since we got punished a lot for overfitting, we didn't use a fixed banded mean r
 **Other notes:**
 - We spent considerable time tracking bot behaviours for insider trading and flow patterns once trader names were revealed, but couldn't find any signals — we don't believe there were any major ones to find.
 
+<p align="center">
+  <img src="images/r4_vee_fills.png" width="90%" alt="VELVETFRUIT_EXTRACT mid price with our buy/sell fills during the Round 4 live submission"/>
+</p>
+
+Looking at the graph, if we'd implemented fixed target bands like other teams who performed much better this round, we could've made a lot more money — but our model was still quite robust and would've generalised well across many different movement patterns.
+
 ## Round 5 — The Whole Universe Opens Up
 
 **Algo PnL: +742,786** • **Algo rank: #5** • **Manual PnL: +20,784** • **Round 5 total: +763,571**
