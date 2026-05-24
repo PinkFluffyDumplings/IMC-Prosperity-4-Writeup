@@ -54,13 +54,20 @@ For the vouchers, we implemented a more involved idea for this round. We compute
 
 ***Strategy:*** [What you implemented.]
 
-## Round 4 — [Strategy name]
+## Round 4 — Generalised Mean Reversion
 
-**Algo PnL: +[X]** • **Algo rank: #[X]**
+**Algo PnL: +216,678** • **Algo rank: #30** • **Manual PnL: −58,240** • **Manual rank: #1200** • **Round 4 total: +158,438**
 
-[Context and observations.]
+Following Round 3, we realised we overfit quite a bit, and since we were scared of overfitting, tried to make a more robust/generalised algorithm. We initially tried to market make all products while computing a set of rolling stats (mean and std) for all products, and once they were computed, start mean reverting based on that. This made money in the backtest but performed poorly on the website as it took time to warm up.
 
-***Strategy:*** [What you implemented.]
+We tracked a running mean of VEE, with two bands around it: a **slow band** (built from the std of mid prices — only fires on big drifts, high conviction) and a **fast band** (built from the std of tick-to-tick returns — fires on sudden spikes, but only if a consistent direction had been firing repeatedly). As the running mean would have issues when the price starts high/low, we included hardcoded thresholds to double check, before betting on reversion in a certain direction.
+
+For vouchers, we extracted deltas from the vouchers in the same manner as Round 3. When VEE was signalling a direction, we took a max position into the high-delta vouchers (most VEE-correlated). When no signal was firing, we just market-made the single highest-delta voucher to collect spread on the most stock-like option in the chain.
+
+Since we got punished a lot for overfitting, we didn't use a fixed banded mean reversion strategy which would've made more money on both round 3 and 4 — we could've started tracking the rolling stats with some information from previous rounds weighted in too but didn't want to risk overfitting. We placed #30 in algo this round, and our cumulative algo rank climbed from #262 to roughly #100 overall by the end of Round 4.
+
+**Other notes:**
+- We spent considerable time tracking bot behaviours for insider trading and flow patterns once trader names were revealed, but couldn't find any signals — we don't believe there were any major ones to find.
 
 ## Round 5 — [Strategy name]
 
