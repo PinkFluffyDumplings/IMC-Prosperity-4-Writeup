@@ -117,20 +117,3 @@ We tried market making, with biases towards certain product directions whenever 
 Most of these families we found to be mainly noise, and it would've been difficult to trade them aggressively outside of pure market making.
 
 Algorithmic ranking was #5 for this round. With so much alpha in the reversion of the ±100 moves on Chocolate, we climbed from top-100 algo to **#9** globally by the end of the competition.
-
-## Manual
-
-### Round 1 — [X]
-[What you did.]
-
-### Round 2 — [X]
-[What you did.]
-
-### Round 3 — [X]
-[What you did.]
-
-### Round 4 — [X]
-[What you did.]
-
-### Round 5 — [X]
-[What you did.]
